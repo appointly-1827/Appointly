@@ -2,10 +2,13 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
+import os
+load_dotenv()
 
 # Database configuration
-DATABASE_URL = "postgresql://postgres:chirag@localhost:1827/Appointly"
-
+DATABASE_URL = os.getenv('DATABASE_URL')
+print(DATABASE_URL)
 # Create the database engine
 engine = create_engine(DATABASE_URL)
 
